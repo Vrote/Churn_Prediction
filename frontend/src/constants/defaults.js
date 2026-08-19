@@ -6,5 +6,7 @@ export const DEFAULT_FORM = {
   balance: 60000,
   products_number: 1,
   active_member: 1,
-  estimated_salary: 50000
+  estimated_salary: 50000,
+  model_type: 'xgboost'
 }
+

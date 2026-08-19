@@ -6,13 +6,13 @@ import { predictChurn } from './services/api'
 import { DEFAULT_FORM } from './constants/defaults'
 
 export default function App() {
-  // 1. State management
-  const [formData, setFormData] = useState(DEFAULT_FORM) // Stores input form values
-  const [loading, setLoading] = useState(false)            // Shows loading state while calling backend API
-  const [result, setResult] = useState(null)               // Stores prediction response from backend
-  const [error, setError] = useState(null)                 // Stores error message if API fails
+  
+  const [formData, setFormData] = useState(DEFAULT_FORM) 
+  const [loading, setLoading] = useState(false)            
+  const [result, setResult] = useState(null)               
+  const [error, setError] = useState(null)                 
 
-  // 2. Handle input changes dynamically
+ 
   const handleChange = (e) => {
     const { name, value, type } = e.target
     setFormData(prev => ({
@@ -21,7 +21,7 @@ export default function App() {
     }))
   }
 
-  // 3. Handle form submission (API Call)
+  
   const handleSubmit = async (e) => {
     e.preventDefault()
     setLoading(true)
@@ -38,7 +38,7 @@ export default function App() {
     }
   }
 
-  // 4. Reset form back to default values
+  
   const handleReset = () => {
     setFormData(DEFAULT_FORM)
     setResult(null)

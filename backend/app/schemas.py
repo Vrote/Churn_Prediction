@@ -10,8 +10,11 @@ class CustomerInput(BaseModel):
     products_number: int = Field(..., ge=1, le=4)
     active_member: Literal[0, 1]
     estimated_salary: float = Field(..., ge=0.0)
+    model_type: Literal["xgboost", "logistic_regression"] = "xgboost"
 
 class PredictionResponse(BaseModel):
     churn_probability: float
     churn_prediction: int
     risk_label: str
+    model_used: str
+

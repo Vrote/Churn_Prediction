@@ -3,6 +3,42 @@ export default function CustomerForm({ formData, onChange, onSubmit, onReset, lo
     <form onSubmit={onSubmit} className="card form-card">
       <h2>Customer Details</h2>
 
+      {/* Model Selection Section */}
+      <div className="model-selector-container">
+        <label className="model-selector-label">Select Machine Learning Model</label>
+        <div className="model-options">
+          <label className={`model-option-btn ${formData.model_type === 'xgboost' ? 'active' : ''}`}>
+            <input
+              type="radio"
+              name="model_type"
+              value="xgboost"
+              checked={formData.model_type === 'xgboost'}
+              onChange={onChange}
+            />
+            <span className="model-icon"></span>
+            <div className="model-text">
+              <span className="model-title">XGBoost Classifier</span>
+              <span className="model-subtitle">High Accuracy Boosting</span>
+            </div>
+          </label>
+
+          <label className={`model-option-btn ${formData.model_type === 'logistic_regression' ? 'active' : ''}`}>
+            <input
+              type="radio"
+              name="model_type"
+              value="logistic_regression"
+              checked={formData.model_type === 'logistic_regression'}
+              onChange={onChange}
+            />
+            <span className="model-icon"></span>
+            <div className="model-text">
+              <span className="model-title">Logistic Regression</span>
+              <span className="model-subtitle">Probabilistic Classifier</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
       <div className="form-grid">
         <div className="form-group">
           <label htmlFor="gender">Gender</label>

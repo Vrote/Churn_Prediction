@@ -30,6 +30,11 @@ export default function PredictionResult({ result, error, loading }) {
         </div>
 
         <div className="result-details">
+          {result.model_used && (
+            <p className="model-used-info">
+              <strong>Model Used:</strong> <span className="model-badge">{result.model_used}</span>
+            </p>
+          )}
           <p>
             <strong>Predicted Action:</strong>{' '}
             {isHighRisk ? 'Customer is likely to churn (leave).' : 'Customer is likely to stay.'}
@@ -45,7 +50,7 @@ export default function PredictionResult({ result, error, loading }) {
   if (!loading) {
     return (
       <div className="card placeholder-card">
-        <p>💡 Fill in the form and click <strong>Predict Churn</strong> to see results here.</p>
+        <p>Fill in the form and click <strong>Predict Churn</strong> to see results here.</p>
       </div>
     )
   }
